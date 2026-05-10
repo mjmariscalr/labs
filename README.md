@@ -4,7 +4,6 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/mjmariscalr/labs)
 ![GitHub last commit](https://img.shields.io/github/last-commit/mjmariscalr/labs)
-![License](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 
