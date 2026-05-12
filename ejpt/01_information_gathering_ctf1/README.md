@@ -32,6 +32,14 @@ El análisis se realizó combinando técnicas de:
 - Enumeración activa (escaneo de red y directorios)
 - Análisis manual de código fuente y estructura web
 
+### Flags
+
+- **Flag 1:** Esto le indica a los motores de búsqueda qué deben y qué no deben evitar.
+- **Flag 2:** ¿Qué sitio web se está ejecutando en el objetivo y cuál es su versión?
+- **Flag 3:** La navegación de directorios podría revelar dónde se almacenan los archivos.
+- **Flag 4:** Un archivo de copia de seguridad olvidado en el directorio raíz web puede ser problemático si revela detalles sensibles de configuración.
+- **Flag 5:** Ciertos archivos pueden revelar algo interesante cuando se replican (mirrored).
+
 ### Herramientas utilizadas
 
 - Firefox
