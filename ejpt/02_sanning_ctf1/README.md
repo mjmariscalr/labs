@@ -44,25 +44,36 @@ El análisis se realizó combinando técnicas de enumeración activa:
 
 ## 3. Hallazgos
 
-### Titulo
+### Flag 1 - Divulgación de información sobre el servidor
 
-descripcion
+El servidor web filtra información sensible sobre su estado y configuración como métodos soportados, versión del servidor o lenguajes de programación.
 
 #### Impacto
 
-Ejemplo:
-Aunque no es una vulnerabilidad directa, puede facilitar:
-- Enumeración de endpoints ocultos
-- Reducción del tiempo de reconocimiento para un atacante
+Aunque no es una vulnerabilidad directa, puede facilitar el análisis de vulnerabilidades al mostrar información como los métodos o la versión del lenguaje.
 
 #### Recomendación
-Ejemplo:
-- Evitar incluir rutas sensibles en `robots.txt`
-- Asumir acceso público a este archivo
+- No exponer información del servidor ni versiones en cabeceras HTTP como Server
+- Usar un reverse proxy (por ejemplo Nginx) para ocultar el backend real
+- Desactivar el modo debug en producción en frameworks como Flask/Werkzeug
 
 #### Resolución
 
-Explicar paso a paso las acciones realizadas para resolver esta parte, con todos los comandos listos para copiar de forma que sea reproducible
+El primer paso es identificar los puertos abiertos en el objetivo. Para ello lanzamos un escaneo con nmap:
+
+```bash
+nmap -sS -p- -T4 target.ine.local
+```
+
+![imagen](img/portscan.png)
+
+El siguiente paso natural es enumerar servicios y versiones de forma general, antes de pasar a una enumeración más específica. En este paso ya podemos encontrar bastante información relevante:
+
+```bash
+nmap -sC -sV -p21,22,25,80,143,993,3306,33060 -T4 target.ine.local
+```
+
+![imagen](img/servicescan.png)
 
 ## 4. Conclusiones
 
