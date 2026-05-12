@@ -75,6 +75,29 @@ nmap -sC -sV -p21,22,25,80,143,993,3306,33060 -T4 target.ine.local
 
 ![imagen](img/servicescan.png)
 
+### Flag 2 -  – Exposición de archivo robots.txt
+
+El archivo `robots.txt` es accesible públicamente y contiene información sobre rutas que no deben ser indexadas por motores de búsqueda.
+
+#### Impacto
+Aunque no es una vulnerabilidad directa, puede facilitar:
+- Enumeración de endpoints ocultos
+- Reducción del tiempo de reconocimiento para un atacante
+
+#### Recomendación
+- Evitar incluir rutas sensibles en `robots.txt`
+- Asumir acceso público a este archivo
+
+#### Resolución
+
+En la última captura de la flag anterior podemos ver como el archivo `robots.txt` revela tres directorios: `/photos`, `/secret-info` y `/data`. El segundo parece bastante sospechoso por lo que comprobamos si podemos acceder:
+
+```bash
+curl http://target.ine.local/secret-info/
+```
+
+![imagen](img/flag2.png)
+
 ## 4. Conclusiones
 
 Comentar lo aprendido
