@@ -7,7 +7,7 @@
 
 Este primer laboratorio del curso de preparación para la certificación eJPT de INE se centra en técnicas de information gathering y reconocimiento aplicadas sobre una web objetivo. Se tienen que explorar algunas de las distintas técnicas vistas en la primera sección del curso en busca de potenciales vulnerabilidades, información sensible y errores de configuración.
 
-Las herramientas que se nos indican como necesarias son: Firefox, curl y HTTrack. Teniendo esto en cuenta, podemos entender que este laboratorio está preparado de forma que lo podamos resolver usando solo técnicas pasivas. Igualmente, algunas de las flags se pueden resolver usando técnicas activas, así que también se explicarán en su correspondiente sección.
+Este laboratorio está preparado de forma que lo podamos resolver usando solo técnicas pasivas. Igualmente, algunas de las flags se pueden resolver usando técnicas activas, así que también se explicarán en su correspondiente sección.
 
 ### Resultados generales
 
