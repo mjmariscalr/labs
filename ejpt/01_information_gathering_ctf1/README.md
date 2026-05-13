@@ -19,18 +19,18 @@ Este laboratorio está preparado de forma que lo podamos resolver usando solo t�
 
 ### Alcance
 
-- Objetivo: `target.ine.local`
-- Tipo de evaluación: Black-box
-- Sin credenciales proporcionadas
-- Entorno de laboratorio controlado
+- Objetivo: `target.ine.local`.
+- Tipo de evaluación: Black-box.
+- Sin credenciales proporcionadas.
+- Entorno de laboratorio controlado.
 
 ### Metodología aplicada
 
 El análisis se realizó combinando técnicas de:
 
-- Reconocimiento pasivo (OSINT, mirroring de sitio web)
-- Enumeración activa (escaneo de red y directorios)
-- Análisis manual de código fuente y estructura web
+- Reconocimiento pasivo (OSINT, mirroring de sitio web).
+- Enumeración activa (escaneo de red y directorios).
+- Análisis manual de código fuente y estructura web.
 
 ### Flags
 
@@ -56,12 +56,12 @@ El archivo `robots.txt` es accesible públicamente y contiene información sobre
 
 #### Impacto
 Aunque no es una vulnerabilidad directa, puede facilitar:
-- Enumeración de endpoints ocultos
-- Reducción del tiempo de reconocimiento para un atacante
+- Enumeración de endpoints ocultos.
+- Reducción del tiempo de reconocimiento para un atacante.
 
 #### Recomendación
-- Evitar incluir rutas sensibles en `robots.txt`
-- Asumir acceso público a este archivo
+- Evitar incluir rutas sensibles en `robots.txt`.
+- Asumir acceso público a este archivo.
 
 #### Resolución
 
@@ -75,14 +75,14 @@ El objetivo expone información sobre la tecnología utilizada, permitiendo iden
 
 #### Impacto
 La exposición de versiones puede permitir:
-- Identificación de vulnerabilidades conocidas (CVE)
-- Ataques dirigidos a versiones específicas
-- Reducción del esfuerzo de explotación
+- Identificación de vulnerabilidades conocidas (CVE).
+- Ataques dirigidos a versiones específicas.
+- Reducción del esfuerzo de explotación.
 
 #### Recomendación
-- Ocultar cabeceras de versión del servidor
-- Eliminar referencias a versiones en frontend
-- Endurecer configuración del servidor web
+- Ocultar cabeceras de versión del servidor.
+- Eliminar referencias a versiones en frontend.
+- Endurecer configuración del servidor web.
 
 #### Resolución pasiva
 
@@ -121,14 +121,14 @@ nmap -p80 -sC -sV target.ine.local
 Se detecta la exposición de estructura de directorios accesibles públicamente, incluyendo el directorio `/uploads`.
 
 ### Impacto
-- Exposición de archivos subidos
-- Posible fuga de información sensible
-- Riesgo de carga y ejecución de archivos maliciosos
+- Exposición de archivos subidos.
+- Posible fuga de información sensible.
+- Riesgo de carga y ejecución de archivos maliciosos.
 
 #### Recomendación
-- Deshabilitar listado de directorios
-- Restringir acceso a directorios de subida
-- Implementar control de acceso adecuado
+- Deshabilitar listado de directorios.
+- Restringir acceso a directorios de subida.
+- Implementar control de acceso adecuado.
 
 #### Resolución pasiva
 
@@ -160,21 +160,21 @@ Para encontrar la flag tenemos que buscar manualmente en la lista de directorios
 
 Se identifica la presencia de un archivo de backup en el directorio público del servidor web.
 
-- Archivo detectado: `wp-config.php.bak`
-- Descubierto mediante enumeración de extensiones comunes
+- Archivo detectado: `wp-config.php.bak`.
+- Descubierto mediante enumeración de extensiones comunes.
 
 #### Impacto
 
 Este hallazgo es crítico en entornos reales, ya que puede contener:
-- Credenciales de base de datos
-- Claves de autenticación
-- Configuración interna del sistema
+- Credenciales de base de datos.
+- Claves de autenticación.
+- Configuración interna del sistema.
 
 #### Recomendación
 
-- Eliminar archivos de backup del entorno público
-- Almacenar backups fuera del webroot
-- Bloquear extensiones sensibles en el servidor
+- Eliminar archivos de backup del entorno público.
+- Almacenar backups fuera del webroot.
+- Bloquear extensiones sensibles en el servidor.
 
 #### Resolución
 
@@ -192,15 +192,15 @@ El análisis mediante mirroring del sitio web permitió descubrir archivos no ac
 
 #### Impacto
 
-- Exposición de recursos internos
-- Posible fuga de información no vinculada públicamente
-- Incremento de la superficie de ataque
+- Exposición de recursos internos.
+- Posible fuga de información no vinculada públicamente.
+- Incremento de la superficie de ataque.
 
 #### Recomendación
 
-- Revisar todos los archivos desplegados en producción
-- Eliminar recursos no referenciados públicamente
-- Restringir acceso a archivos no necesarios
+- Revisar todos los archivos desplegados en producción.
+- Eliminar recursos no referenciados públicamente.
+- Restringir acceso a archivos no necesarios.
 
 #### Resolución
 
@@ -210,7 +210,7 @@ Al descargar la web con HTTrack es posible descargar ciertos archivos que no son
 
 ## 4. Conclusiones
 
-- El reconocimiento pasivo puede revelar gran parte de la superficie de ataque sin interacción directa
-- Las malas configuraciones son una fuente común de exposición de información
-- La enumeración de directorios sigue siendo una técnica altamente efectiva
-- Los archivos de backup representan un riesgo crítico en entornos productivos
+- El reconocimiento pasivo puede revelar gran parte de la superficie de ataque sin interacción directa.
+- Las malas configuraciones son una fuente común de exposición de información.
+- La enumeración de directorios sigue siendo una técnica altamente efectiva.
+- Los archivos de backup representan un riesgo crítico en entornos productivos.

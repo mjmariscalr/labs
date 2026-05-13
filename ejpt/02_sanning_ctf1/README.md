@@ -125,8 +125,41 @@ Una vez conectados al servidor, encontramos la flag de este reto y las credencia
 
 ![imagen](img/ftp_creds.png)
 
+### Flag 4 - Enumeración de bases de datos mediante credenciales expuestas
+
+Durante la resolución del reto anterior se localizan unas credenciales almacenadas en texto plano. Por el contexto y el nombre de usuario, se deduce que pertenecen al servicio de base de datos. Con ellas ha sido posible conectarse remotamente al servidor de bases de datos y enumerar su contenido. La flag se encuentra expuesta en el nombre de una de las bases de datos listadas.
+
+#### Impacto
+
+Aunque no implica directamente la extracción de datos sensibles, este tipo de exposición puede facilitar:
+
+- Acceso no autorizado.
+- Enumeración de bases de datos, tablas y usuarios.
+- Obtención de información sensible sobre la infraestructura.
+- Identificación de aplicaciones, entornos o backups.
+
+Además, almacenar credenciales en texto plano incrementa significativamente el riesgo de compromiso total del sistema si un atacante obtiene acceso inicial.
+
+#### Recomendación
+- No almacenar credenciales en texto plano.
+- Limitar el acceso remoto al servicio MySQL.
+- Restringir permisos innecesarios.
+- Monitorizar accesos remotos.
+
+#### Resolución
+
+Se ha realizado una conexión a la base de datos con las credenciales obtenidas en el reto anterior y se han mostrado las bases de datos disponibles dentro del gestor.
+
+```bash
+mysql -h target.ine.local -u db_admin -p
+```
+
+![imagen](img/mysql.png)
+
 ## 4. Conclusiones
 
-Comentar lo aprendido
-
-- 
+- La enumeración activa permite identificar rápidamente servicios expuestos y posibles vectores de ataque.
+- La divulgación de información mediante banners, cabeceras o configuraciones por defecto facilita el reconocimiento de la infraestructura objetivo.
+- Servicios mal configurados pueden derivar en la exposición de credenciales y recursos internos.
+- La exposición de servicios de bases de datos accesibles remotamente amplía la superficie de ataque y facilita tareas de enumeración.
+- Incluso información aparentemente poco sensible, como nombres de bases de datos o rutas ocultas, puede aportar contexto útil para un atacante durante fases posteriores.
