@@ -98,6 +98,33 @@ curl http://target.ine.local/secret-info/
 
 ![imagen](img/flag2.png)
 
+### Flag 3 - Usuario anonymous en FTP
+
+El servicio FTP está mal configurado, permitiendo el acceso anónimo y filtrando así la flag de este reto además de las credenciales de la base de datos.
+
+#### Impacto
+
+Permitir conexión anónima en un servidor FTP implica que cualquier usuario puede acceder sin autenticarse con credenciales reales. Esto supone varios riesgos de seguridad:
+
+- Acceso no autorizado a archivos públicos o mal configurados.
+- Posible fuga de información sensible.
+- Uso del servidor para distribuir malware o contenido ilegal.
+- Mayor exposición a ataques automatizados y enumeración de directorios.
+- Dificultad para auditar quién realizó acciones concretas.
+
+#### Recomendación
+Se recomienda deshabilitar el acceso anónimo salvo que sea estrictamente necesario y limitar siempre los permisos de lectura/escritura.
+
+#### Resolución
+
+En el escaneo realizado inicialmente con nmap podemos ver que en la sección correspondiente al servidor FTP se indica que el acceso anonimo al servidor se encuentra habilitado.
+
+![imagen](img/ftp.png)
+
+Una vez conectados al servidor, encontramos la flag de este reto y las credenciales de la base de datos.
+
+![imagen](img/ftp_creds.png)
+
 ## 4. Conclusiones
 
 Comentar lo aprendido
