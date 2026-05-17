@@ -5,13 +5,13 @@
 
 ## 1. Resumen
 
-
+Tercer laboratorio del curso de preparación para la certificación eJPT de INE. Se centra en técnicas de enumeración de servidores. En este laboratorio nos vamos a encontrar con distintos servicios como: SSH, SMB o FTP.
 
 ### Resultados generales
 
-- Flags obtenidas: 
-- Tipo de hallazgos: 
-- Dificultad: **Baja/Media/Alta**
+- Flags obtenidas: 4/4
+- Tipo de hallazgos:  Information disclosure / Misconfiguration / Debilidad de credenciales
+- Dificultad: **Media**
 
 ## 2. Alcance y Metodología
 
