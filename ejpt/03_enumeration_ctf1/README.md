@@ -18,7 +18,7 @@ Tercer laboratorio del curso de preparación para la certificación eJPT de INE.
 ### Alcance
 
 - Objetivo: `IP`
-- Tipo de evaluación: Black-box/Gray-box/White-box
+- Tipo de evaluación: Black-box
 - Sin credenciales proporcionadas
 - Entorno de laboratorio controlado
 
@@ -26,15 +26,24 @@ Tercer laboratorio del curso de preparación para la certificación eJPT de INE.
 
 El análisis se realizó combinando técnicas de:
 
-- 
+- Enumeración de servicios
+- Fuerza bruta sobre credenciales
 
 ### Flags
 
-- 
+- Flag 1: Hay un recurso compartido Samba que permite acceso anónimo. ¡A ver qué hay dentro!
+- Flag 2: Uno de los usuarios de Samba tiene una contraseña débil. Su recurso privado, que tiene el mismo nombre que su usuario, está en riesgo.
+- Flag 3: Sigue la pista proporcionada en la flag anterior para descubrir esta.
+- Flag 4: Este es un aviso destinado a disuadir a usuarios no autorizados de iniciar sesión.
 
 ### Herramientas utilizadas
 
-- 
+- Nmap
+- Metasploit
+- Hydra
+- enum4linux
+- smbclient
+- smbmap
 
 ## 3. Hallazgos
 
