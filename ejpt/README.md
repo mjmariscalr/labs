@@ -1,9 +1,9 @@
 # eJPT Certification
 
 ![Security](https://img.shields.io/badge/Focus-Penetration%20Testing-red.svg)
-<!-- ![Status](https://img.shields.io/badge/Status-Completed%20%2F%20In%20Progress-brightgreen.svg) -->
 ![Status](https://img.shields.io/badge/Status-In%20Progress-brightgreen.svg)
 ![Level](https://img.shields.io/badge/Level-Junior-blue.svg)
+<!-- ![Status](https://img.shields.io/badge/Status-Completed%20%2F%20In%20Progress-brightgreen.svg) -->
 
 Este repositorio contiene la documentación, metodologías y notas de los laboratorios prácticos realizados durante mi preparación para la certificación **eJPT (eLearnSecurity Certified Junior Penetration Tester)** de INE.
 
