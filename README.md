@@ -42,6 +42,4 @@ La metodología habitual seguida en los laboratorios incluye:
 
 ## Disclaimer
 
-Este contenido tiene fines exclusivamente educativos y de práctica en entornos controlados y autorizados.
-
-No se promueve el uso indebido de técnicas ofensivas fuera de laboratorios o sistemas con autorización explícita.
+Este contenido tiene fines exclusivamente educativos y de práctica en entornos controlados y autorizados. No se promueve el uso indebido de técnicas ofensivas fuera de laboratorios o sistemas con autorización explícita.
