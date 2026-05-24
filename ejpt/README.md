@@ -19,3 +19,27 @@ A lo largo de estos laboratorios encontramos contenidos en las siguientes áreas
 3. **Explotación**
 4. **Post-Explotación**
 5. **Auditoría Web**
+
+## Herramientas Utilizadas
+
+Durante los laboratorios se utilizan herramientas comunes en entornos reales de pentesting:
+
+- Nmap
+- Netcat
+- Metasploit
+- Gobuster
+- Dirb
+- Hydra
+- Burp Suite
+- Nikto
+- Enum4linux
+- Wireshark
+- Searchsploit
+
+---
+
+## Disclaimer
+
+Todos los laboratorios y técnicas documentadas en este repositorio han sido realizados en entornos controlados y con fines exclusivamente educativos.
+
+No se promueve el uso indebido de estas técnicas contra sistemas sin autorización explícita.
