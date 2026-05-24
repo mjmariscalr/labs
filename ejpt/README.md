@@ -40,6 +40,4 @@ Durante los laboratorios se utilizan herramientas comunes en entornos reales de 
 
 ## Disclaimer
 
-Todos los laboratorios y técnicas documentadas en este repositorio han sido realizados en entornos controlados y con fines exclusivamente educativos.
-
-No se promueve el uso indebido de estas técnicas contra sistemas sin autorización explícita.
+Todos los laboratorios y técnicas documentadas en este repositorio han sido realizados en entornos controlados y con fines exclusivamente educativos. No se promueve el uso indebido de estas técnicas contra sistemas sin autorización explícita.
