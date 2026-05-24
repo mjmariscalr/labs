@@ -14,7 +14,7 @@ Este repositorio forma parte de mi formación en ciberseguridad y documenta el p
 - Hack The Box
 - TryHackMe
 - VulnHub
-- INE: Penetration testing student
+- [INE: Penetration testing student](ejpt/README.md)
 - Entornos propios
 
 El objetivo es demostrar metodología, capacidad de enumeración, explotación y post-explotación, además de mantener un registro técnico de aprendizaje continuo.
