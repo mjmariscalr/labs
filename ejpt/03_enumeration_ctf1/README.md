@@ -80,12 +80,50 @@ Para encontrar distintos recursos que permitan acceso anónimo, podemos usar `sm
 Una vez encontrados los recursos accesibles, nos conectamos usando `smbclient`:
 
 ```bash
-smbclient -N //target.ine.local/NOMBREDELRECURSO
+smbclient -N //target.ine.local/pubfiles
 ```
 
 Dentro encontramos la primera flag.
 
 ![imagen](img/flag1.png)
+
+### Flag 2 - Contraseña débil en recurso SMB
+Durante la fase de enumeración se ha identificado un usuario con una contraseña débil, la cual ha podido obtenerse mediante un ataque de fuerza bruta contra el servicio SMB. Esto ha permitido autenticarse correctamente y acceder a los recursos compartidos asociados a dicho usuario.
+
+#### Impacto
+El uso de contraseñas débiles o fácilmente predecibles incrementa significativamente el riesgo de compromiso de cuentas válidas. Un atacante puede aprovechar esta situación para obtener acceso no autorizado a recursos internos, extraer información sensible, reutilizar credenciales en otros servicios o desplazarse lateralmente dentro de la infraestructura comprometida.
+
+#### Recomendación
+- Aplicar políticas de contraseñas robustas y complejas.
+- Configurar mecanismos de bloqueo temporal tras múltiples intentos fallidos de autenticación.
+- Implementar autenticación multifactor (MFA) siempre que sea posible.
+- Monitorizar intentos de autenticación sospechosos sobre servicios SMB.
+- Realizar auditorías periódicas de contraseñas débiles y políticas de acceso.
+
+#### Resolución
+El primer paso ha consistido en enumerar los usuarios existentes en el sistema para facilitar posteriores ataques de autenticación. Para ello se ha utilizado la herramienta `enum4linux`, ampliamente empleada durante fases de reconocimiento en entornos Windows y Samba debido a su rapidez y sencillez.
+
+```bash
+enum4linux -U target.ine.local
+```
+
+![imagen](img/enum4linux.png)
+
+Una vez obtenidos los nombres de usuario, se han almacenado en una wordlist para automatizar el proceso de autenticación. Posteriormente se ha utilizado `msfconsole`, concretamente el módulo `auxiliary/scanner/smb/smb_login`, con el objetivo de realizar un ataque de fuerza bruta contra el servicio SMB e identificar credenciales válidas.
+
+El módulo ha permitido identificar credenciales válidas para el usuario josh, obteniendo acceso autenticado al servicio SMB.
+
+![img](img/smb_login.png)
+
+Finalmente, y siguiendo la pista proporcionada por el laboratorio, se ha accedido al recurso compartido que tenía el mismo nombre que el usuario comprometido.
+
+```bash
+smbclient -U josh //target.ine.local/josh
+```
+
+Tras autenticarse correctamente, ha sido posible acceder al contenido del recurso compartido y localizar la segunda flag.
+
+![img](img/flag2.png)
 
 ## 4. Conclusiones
 
