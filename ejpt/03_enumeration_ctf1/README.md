@@ -75,6 +75,8 @@ Encontramos varios servicios disponibles, pero para esta primera flag nos centra
 
 Para encontrar distintos recursos que permitan acceso anónimo, podemos usar `smbclient` o `smbmap` dentro de un bucle que recorra una lista de recursos. Para ello se nos proporciona una wordlist en `/root/Desktop/wordlists/shares.txt`. En este laboratorio se ha usado el script `smbfuzz`, disponible [aquí](https://github.com/mjmariscalr/scripts/tree/main/smbfuzz), que enumera usando `smbclient`.
 
+![imagen](img/smbfuzz.png)
+
 Una vez encontrados los recursos accesibles, nos conectamos usando `smbclient`:
 
 ```bash
@@ -83,7 +85,7 @@ smbclient -N //target.ine.local/NOMBREDELRECURSO
 
 Dentro encontramos la primera flag.
 
-![imagen](img/.png)
+![imagen](img/flag1.png)
 
 ## 4. Conclusiones
 
