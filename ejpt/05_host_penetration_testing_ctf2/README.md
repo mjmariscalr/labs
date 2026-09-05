@@ -38,4 +38,12 @@ Para esta segunda flag, basta con buscar en el directorio que nos indica la pist
 
 ## Flag 3 -  Investigate the user's home directory and consider using 'libssh_auth_bypass' to uncover the flag on target2.ine.local.
 
+Ya que cambiamos de objetivo, necesitamos volver a escanear los posibles puertos abiertos.
 
+```console
+root@ine# nmap -sS -p- -T4 -sC -sV target2.ine.local
+```
+
+![nmap2](img/nmap2.png)
+
+Sabemos que las versiones de `libssh` anteriores a la `0.8.4` son vulnerables a [CVE-2018-10933](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/linux/libsshAuthBypass.md)
