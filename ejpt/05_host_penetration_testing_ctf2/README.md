@@ -46,4 +46,10 @@ root@ine# nmap -sS -p- -T4 -sC -sV target2.ine.local
 
 ![nmap2](img/nmap2.png)
 
-Sabemos que las versiones de `libssh` anteriores a la `0.8.4` son vulnerables a [CVE-2018-10933](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/linux/libsshAuthBypass.md)
+Sabemos que las versiones de `libssh` anteriores a la `0.8.4` son vulnerables a [CVE-2018-10933](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/linux/libsshAuthBypass.md), así que usamos metasploit para conseguir acceso al sistema.
+
+![libssh](img/libssh.png)
+
+Terminamos comprobando el directorio `/home` del usuario para obtener la flag.
+
+![flag3](img/flag3.png)
