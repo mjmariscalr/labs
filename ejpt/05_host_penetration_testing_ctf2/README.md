@@ -29,3 +29,11 @@ Puesto que nmap nos confirma la vulnerabilidad a shellshock, podemos pasar direc
 Por último, buscamos la flag en `/`.
 
 ![flag1](img/flag1.png)
+
+## Flag 2 - In the server's root directory, there might be something hidden. Explore '/opt/apache/htdocs/' carefully to find the next flag on target1.ine.local.
+
+Para esta segunda flag, basta con buscar en el directorio que nos indica la pista para encontrarla
+
+![flag2](img/flag2.png)
+
+
