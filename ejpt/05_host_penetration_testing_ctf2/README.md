@@ -15,7 +15,7 @@ Si accedemos desde el navegador, nos encontramos con un script cgi.
 
 ![cgi](img/cgi.png)
 
-Sabemos que este tipo de script puede estar asociado a dos vulnerabilidades estudiadas en el curso: PHP CGI Argument Injection y Shellshock. Con una sola comprobación podemos obtener la versión de php para comprobar si existe la posibilidad de la primera, y saber si es vulnerable a la segunda.
+Sabemos que este tipo de script puede estar asociado a dos vulnerabilidades estudiadas en el curso: [PHP CGI Argument Injection](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/linux/php.md) y [Shellshock](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/linux/shellshock.md). Con una sola comprobación podemos obtener la versión de php para comprobar si existe la posibilidad de la primera, y saber si es vulnerable a la segunda.
 
 ```console
 root@ine# nmap --script http-shellshock,http-php-version --script-args "http-shellshock.uri=/ruta/scirpt.cgi" target1.ine.local
