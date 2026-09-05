@@ -36,4 +36,6 @@ Para esta segunda flag, basta con buscar en el directorio que nos indica la pist
 
 ![flag2](img/flag2.png)
 
+## Flag 3 -  Investigate the user's home directory and consider using 'libssh_auth_bypass' to uncover the flag on target2.ine.local.
+
 
