@@ -174,6 +174,10 @@ Como hemos obtenido credenciales de varios usuarios, quizá podamos usarlas para
 
 ![psexec](img/psexec.png)
 
+Como ya hemos obtenido acceso completo al sistema como `NT AUTHORITY\SYSTEM`, podemos usar el comando `search -d C: -f flag*.txt` para hacer una busqueda recursiva en todo el sistema y encontrar las flags.
+
+![flags](img/flags.png)
+
 ## 4. Conclusiones
 
 Comentar lo aprendido
