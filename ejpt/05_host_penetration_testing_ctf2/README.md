@@ -17,11 +17,15 @@ Si accedemos desde el navegador, nos encontramos con un script cgi.
 
 Sabemos que este tipo de script puede estar asociado a dos vulnerabilidades estudiadas en el curso: PHP CGI Argument Injection y Shellshock. Con una sola comprobación podemos obtener la versión de php para comprobar si existe la posibilidad de la primera, y saber si es vulnerable a la segunda.
 
-```bash
-nmap --script http-shellshock,http-php-version --script-args "http-shellshock.uri=/ruta/scirpt.cgi" target1.ine.local
+```console
+root@ine# nmap --script http-shellshock,http-php-version --script-args "http-shellshock.uri=/ruta/scirpt.cgi" target1.ine.local
 ```
 
 Puesto que nmap nos confirma la vulnerabilidad a shellshock, podemos pasar directamente a explotarla.
 
 ![shellshock](img/shellshock.png)
+![meterpreter](img/meterpreter.png)
 
+Por último, buscamos la flag en `/`.
+
+![flag1](img/flag1.png)
