@@ -53,3 +53,9 @@ Sabemos que las versiones de `libssh` anteriores a la `0.8.4` son vulnerables a 
 Terminamos comprobando el directorio `/home` del usuario para obtener la flag.
 
 ![flag3](img/flag3.png)
+
+## Flag 4 - The most restricted areas often hold the most valuable secrets. Look into the '/root' directory to find the hidden flag on target2.ine.local.
+
+Para esta última flag, necesitamos un usuario con privilegios en el sistema. El primer paso es comprobar si el usuario explotado tiene acceso privilegiado.
+
+![id](img/id.png)
