@@ -75,7 +75,7 @@ nmap -sC -sV -p21,22,25,80,143,993,3306,33060 -T4 target.ine.local
 
 ![imagen](img/servicescan.png)
 
-### Flag 2 -  – Exposición de archivo robots.txt
+### Flag 2 - Exposición de archivo robots.txt
 
 El archivo `robots.txt` es accesible públicamente y contiene información sobre rutas que no deben ser indexadas por motores de búsqueda.
 
