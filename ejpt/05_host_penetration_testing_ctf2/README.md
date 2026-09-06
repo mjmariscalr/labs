@@ -59,3 +59,11 @@ Terminamos comprobando el directorio `/home` del usuario para obtener la flag.
 Para esta última flag, necesitamos un usuario con privilegios en el sistema. El primer paso es comprobar si el usuario explotado tiene acceso privilegiado.
 
 ![id](img/id.png)
+
+Como no tiene acceso, debemos buscar un método de escalada. Durante la búsqueda de la flag anterior, hemos encontrado algunos archivos en el `home` del usuario. Si los comprobamos, podemos ver que uno de ellos tiene los permisos SUID activos.
+
+![suid](img/suid.png)
+
+Si usamos el comando `strings`, comprobamos que el otro binario del directorio aparece como cadena de texto imprimible. Si `welcome` hace una llamada a `greetings`, podemos aprovecharlo para elevar los privilegios sustituyendo este último por una copia de `/bin/bash`.
+
+![bash](img/bash.png)
