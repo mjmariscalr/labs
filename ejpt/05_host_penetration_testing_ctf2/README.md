@@ -67,3 +67,7 @@ Como no tiene acceso, debemos buscar un método de escalada. Durante la búsqued
 Si usamos el comando `strings`, comprobamos que el otro binario del directorio aparece como cadena de texto imprimible. Si `welcome` hace una llamada a `greetings`, podemos aprovecharlo para elevar los privilegios sustituyendo este último por una copia de `/bin/bash`.
 
 ![bash](img/bash.png)
+
+Terminamos comprobando el directorio `/root` para obtener la última flag.
+
+![flag4](img/flag4.png)
