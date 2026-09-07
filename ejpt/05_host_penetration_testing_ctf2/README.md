@@ -60,7 +60,7 @@ Para esta última flag, necesitamos un usuario con privilegios en el sistema. El
 
 ![id](img/id.png)
 
-Como no tiene acceso, debemos buscar un método de escalada. Durante la búsqueda de la flag anterior, hemos encontrado algunos archivos en el `home` del usuario. Si los comprobamos, podemos ver que uno de ellos tiene los permisos SUID activos.
+Como no tiene acceso, debemos buscar un método de escalada. Durante la búsqueda de la flag anterior, hemos encontrado algunos archivos en el `home` del usuario. Si los comprobamos, podemos ver que uno de ellos tiene los permisos [SUID](https://github.com/mjmariscalr/ejpt/blob/main/05_post_exp/07_linux_privesc.md#explotaci%C3%B3n-de-binarios-suid) activos.
 
 ![suid](img/suid.png)
 
