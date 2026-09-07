@@ -63,6 +63,11 @@ Para `duplicator` podemos acceder a su directorio usando el navegador y enumerar
 
 ![duplicator](img/duplicator.png)
 
+![vuln](img/vuln.png)
+
+Esta vulnerabilidad permite acceder a archivos del sistema sin atuenticación, por lo que podemos obtener la flag sin necesidad de acceder al sistema.
+
+![flag3](img/flag3.png)
 
 ## Flag 4 - Further, identify and compromise a system user requiring no authentication on target2.ine.local.
 
