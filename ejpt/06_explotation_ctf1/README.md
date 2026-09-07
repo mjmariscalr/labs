@@ -37,7 +37,9 @@ hydra -l iamaweakuser -P /usr/share/wordlists/metasploit/unix_passwords.txt targ
 
 ![hydra](img/hydra.png)
 
+Usamos estas credenciales para acceder al sistema mediante `ssh` y obtener la flag.
 
+![flag2](img/flag2.png)
 
 ## Flag 3 - Identify and exploit the vulnerable plugin used by the web application running on target2.ine.local and retrieve the flag3.txt file from the root directory.
 
