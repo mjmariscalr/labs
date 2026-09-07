@@ -71,4 +71,10 @@ Esta vulnerabilidad permite acceder a archivos del sistema sin atuenticación, p
 
 ## Flag 4 - Further, identify and compromise a system user requiring no authentication on target2.ine.local.
 
+Ya que con esta vulnerabilidad obtenemos acceso a los archivos del sistema, podemos aprovecharla para descargar el contenido de `/etc/passwd` en busca de usuarios.
 
+![usr2](img/usr2.png)
+
+Este usuario no tendrá contraseña. Lo usamos para acceder mediante `ssh` y buscar la última flag.
+
+![flag4](img/flag4.png)
