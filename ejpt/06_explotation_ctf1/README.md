@@ -51,6 +51,15 @@ root@ine# nmap -sS -p- -T4 -sC -sV target2.ine.local
 
 ![nmap2](img/nmap2.png)
 
+Sabemos, gracias a la pista y al escaneo de nmap, que tenemos que buscar un plugin de wordpress. Estos suelen estar en `wp-content/plugins`, así que podemos enumerar directorios dentro de esa ruta para buscar los posibles plugins instalados.
+
+```console
+root@ine# dirb http://target2.ine.local/wp-content/plugins /usr/share/wordlists/metasploit/wp-plugins.txt
+```
+
+![plugin](img/plugin.png)
+
+
 ## Flag 4 - Further, identify and compromise a system user requiring no authentication on target2.ine.local.
 
 
