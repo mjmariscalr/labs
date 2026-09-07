@@ -25,6 +25,18 @@ Lo ejecutamos con `python3 flatcore.py http://target1.ine.local admin password1`
 
 ## Flag 2 - Further, identify and compromise an insecure system user on target1.ine.local.
 
+Para enumerar usuarios del sistema podemos intentar acceder a `/etc/passwd` ya que, al no contener información sensible más alla del nombre de usuario, no suele estar limitado en permisos de lectura o cifrado.
+
+![usr](img/usr.png)
+
+Durante el escaneo de puertos hemos detectado el servicio `ssh`, así que podemos usar `hydra` para intentar obtener su contraseña.
+
+```console
+hydra -l iamaweakuser -P /usr/share/wordlists/metasploit/unix_passwords.txt target1.ine.local ssh
+```
+
+![hydra](img/hydra.png)
+
 
 
 ## Flag 3 - Identify and exploit the vulnerable plugin used by the web application running on target2.ine.local and retrieve the flag3.txt file from the root directory.
