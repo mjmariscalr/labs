@@ -59,6 +59,10 @@ root@ine# dirb http://target2.ine.local/wp-content/plugins /usr/share/wordlists/
 
 ![plugin](img/plugin.png)
 
+Para `duplicator` podemos acceder a su directorio usando el navegador y enumerar su versión con el objetivo de comprobar si es vulnerable.
+
+![duplicator](img/duplicator.png)
+
 
 ## Flag 4 - Further, identify and compromise a system user requiring no authentication on target2.ine.local.
 
