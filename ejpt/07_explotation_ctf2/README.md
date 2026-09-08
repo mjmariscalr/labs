@@ -96,3 +96,5 @@ Listamos los recursos disponibles y nos encontramos con la tercera flag.
 Durante la resolución de la tercera flag, comprobamos gracias a los archivos y directorios que encontramos junto a la flag que el servidor **FTP** tiene acceso a **IIS** y este último usa scripts asp, así que podemos aprovechar esto para subir un payload y ejecutarlo desde el navegador para tratar de [obtener acceso al sistema](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/win/ftp.md#obtener-una-shell).
 
 Para ello creamos un payload `aspx` con msfvenom.
+
+
