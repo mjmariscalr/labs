@@ -55,6 +55,9 @@ Usamos el módulo `smb_login` de metasploit para intentar obtner las credenciale
 
 ![tom](img/tom.png)
 
+Aprovechamos que hemos creado una sesión con este módulo para explorar los recursos compartidos del servidor y encontramos la flag en el recurso `HRDocuments`.
+
+![flag1](img/flag1.png)
 
 ## Flag 2: Using the NTLM hash list discovered in the previous challenge, can you compromise the smb user nancy?
 
