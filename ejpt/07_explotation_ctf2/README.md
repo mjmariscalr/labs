@@ -61,7 +61,19 @@ Aprovechamos que hemos creado una sesión con este módulo para explorar los rec
 
 ## Flag 2: Using the NTLM hash list discovered in the previous challenge, can you compromise the smb user nancy?
 
+Usamos el archivo `leaked-hashes.txt` encontrado junto a la primera flag a modo de lista de contraseñas con el mismo módulo para comprobar si alguno de los hashes se corresponde con la contraeña de nancy.
 
+![nancy](img/nancy.png)
+
+Podemos usar la herramienta `smbmap` para comprobar a que recursos tiene acceso un usuario sin la necesidad de acceder a ellos uno por uno de forma manual.
+
+```console
+root@ine# smbmap -u nancy -p 'aad3b435b51404eeaad3b435b51404ee:b3ddea4b4b957f3e037af75cfe5317ad' -H target.ine.local
+```
+
+![smbmap](img/smbmap.png)
+
+De la misma forma que con la primera flag, exploramos los recursos compartidos a los que tiene acceso este usuario para 
 
 ## Flag 3: I wonder what the hint found in the previous challenge be useful for!
 
