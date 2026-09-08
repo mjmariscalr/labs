@@ -73,11 +73,23 @@ root@ine# smbmap -u nancy -p 'aad3b435b51404eeaad3b435b51404ee:b3ddea4b4b957f3e0
 
 ![smbmap](img/smbmap.png)
 
-De la misma forma que con la primera flag, exploramos los recursos compartidos a los que tiene acceso este usuario para 
+De la misma forma que con la primera flag, exploramos los recursos compartidos a los que tiene acceso este usuario para encontrar la segunda.
+
+![flag2](img/flag2.png)
 
 ## Flag 3: I wonder what the hint found in the previous challenge be useful for!
 
+Si comprobamos el contenido de la pista nos encontramos las credenciales de un usuario.
 
+![david](img/david.png)
+
+El paso más intuitivo es probar estas credenciales para conectarnos al servidor SMB y ver si tenemos acceso a recursos más protegidos, pero no conseguimos nada. Durante la enumeración con `nmap` tambien hemos encontrado un servidor FTP y en este caso si conseguimos acceso.
+
+![ftp](img/ftp.png)
+
+Listamos los recursos disponibles y nos encontramos con la tercera flag.
+
+![flag3](img/flag3.png)
 
 ## Flag 4: Can you compromise the target machine and retrieve the C://flag4.txt file?
 
