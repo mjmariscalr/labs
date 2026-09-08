@@ -51,7 +51,7 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 
-Usamos el módulo `smb_login` de metasploit para intentar obtner las credenciales de tom.
+Usamos el módulo `smb_login` de metasploit para intentar obtener las credenciales de tom.
 
 ![tom](img/tom.png)
 
@@ -61,7 +61,7 @@ Aprovechamos que hemos creado una sesión con este módulo para explorar los rec
 
 ## Flag 2: Using the NTLM hash list discovered in the previous challenge, can you compromise the smb user nancy?
 
-Usamos el archivo `leaked-hashes.txt` encontrado junto a la primera flag a modo de lista de contraseñas con el mismo módulo para comprobar si alguno de los hashes se corresponde con la contraeña de nancy.
+Usamos el archivo `leaked-hashes.txt` encontrado junto a la primera flag a modo de lista de contraseñas con el mismo módulo para comprobar si alguno de los hashes se corresponde con la contraseña de nancy.
 
 ![nancy](img/nancy.png)
 
@@ -83,7 +83,7 @@ Si comprobamos el contenido de la pista nos encontramos las credenciales de un u
 
 ![david](img/david.png)
 
-El paso más intuitivo es probar estas credenciales para conectarnos al servidor SMB y ver si tenemos acceso a recursos más protegidos, pero no conseguimos nada. Durante la enumeración con `nmap` tambien hemos encontrado un servidor FTP y en este caso si conseguimos acceso.
+El paso más intuitivo es probar estas credenciales para conectarnos al servidor SMB y ver si tenemos acceso a recursos más protegidos, pero no conseguimos nada. Durante la enumeración con `nmap` también hemos encontrado un servidor **FTP** y en este caso si conseguimos acceso.
 
 ![ftp](img/ftp.png)
 
@@ -93,4 +93,6 @@ Listamos los recursos disponibles y nos encontramos con la tercera flag.
 
 ## Flag 4: Can you compromise the target machine and retrieve the C://flag4.txt file?
 
+Durante la resolución de la tercera flag, comprobamos gracias a los archivos y directorios que encontramos junto a la flag que el servidor **FTP** tiene acceso a **IIS** y este último usa scripts asp, así que podemos aprovechar esto para subir un payload y ejecutarlo desde el navegador para tratar de [obtener acceso al sistema](https://github.com/mjmariscalr/ejpt/blob/main/04_explotacion/win/ftp.md#obtener-una-shell).
 
+Para ello creamos un payload `aspx` con msfvenom.
