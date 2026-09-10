@@ -4,13 +4,60 @@
 
 > An ordinary scan of the perimeter host reveals little of use. A diagnostic service is listening, but it only responds to connections that present themselves as low-numbered, well-known traffic (like DNS) rather than a random high-numbered source port, anything else is turned away. Work out what source port the service expects your connection to come from, present your connection accordingly, and read the token it returns.
 
-nc -p 53 target1.ine.local 13337
+Para obtener esta flag, primero debemos conseguir acceso al objetivo. El primer paso es enumerar los posibles vectores de ataque.
+
+```console
+root@ine# nmap -sS -p- -T4 -sC -sV target.ine.local
+```
+
+![nmap](img/nmap.png)
+
+En este escaneo preliminar encontramos abierto el puerto `13337` y obtenemos información que indica que podría tratarse de un canal de diagnóstico. Usamos `nc` para conectarnos con la intención de obtener más información sobre este servicio y al establecer la conexión nos muestra la primera flag.
+
+```console
+root@ine# nc -p 53 target1.ine.local 13337
+```
+
+![flag1](img/flag1.png)
 
 ## Task 2: Interrogate the host's management layer
 
 > The perimeter host is monitored. Its management layer will answer questions once you address it correctly - but it will not respond to the obvious defaults. Recover the value it expects, then pull everything the management layer is willing to disclose. One of those disclosures is a token; another is the name of an account you will want later.
 
-snmpwalk -v1 -c mngt -On target1.ine.local 1.3.6.1.4.1 | grep -i "flag"
+Sabemos por esta pista que el host está siendo monitorizado y por el enunciado general del laboratorio que el servicio snmp está activo en el servidor, así que vamos a empezar obteniendo las community strings.
+
+```console
+root@ine# nmap -sU -p 161 --script snmp-brute target1.ine.local
+```
+
+![string](img/string.png)
+
+SNMP organiza la información en una estructura jerárquica llamada **árbol de OID**. Cada dato tiene un identificador numérico que indica su posición dentro del árbol.
+
+Por ejemplo:
+
+```
+1 (iso)
+└── 3 (org)
+    └── 6 (dod)
+        └── 1 (internet)
+            ├── 2 (mgmt)
+            │   └── 1 (mib-2)
+            └── 4 (private)
+                └── 1 (enterprises)
+```
+
+`snmpwalk` recorre los elementos que se encuentran debajo del OID que indiquemos. Si no especificamos ninguno, comienza en una rama predeterminada, por lo que puede no mostrar toda la información disponible.
+
+En este caso, al utilizar `1` como punto de inicio:
+
+```console
+root@ine# snmpwalk -v1 -c mngt target1.ine.local 1
+```
+
+se recorre el árbol desde `iso`, permitiendo acceder también a ramas donde se encuentran la flag y el usuario.
+
+![flag2](img/flag2.png)
 
 ## Task 3: Enumerate the host's file services without credentials
 
