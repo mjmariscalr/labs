@@ -103,6 +103,15 @@ root@ine# smbclient //target1.ine.local/backup -U svc_backup
 
 > There is a second server that you cannot reach from where you are standing. Your foothold on the perimeter host, however, is trusted by it. Use that foothold to route into the internal server, enumerate what it offers, and read the token held on the share that needs no credentials.
 
+En el mismo archivo donde encontramos la cuarta flag, hay una nota que indica que el segundo objetivo solo acepta conexiones smb desde el primero. Como hemos visto durante la enumeración snmp, el usuario `svc_backup` se puede contectar a través de smb y ssh, así que podemos usar esta conexión para enumerar el segundo objetivo.
+
+Sabemos por la pista que hay un recurso que no necesita credenciales, por lo que podemos enumerar los recursos disponibles y acceder a este.
+
+![smb2](img/smb2.png)
+
+Al acceder al recurso público obtenemos la flag y las credenciales necesarias para la siguiente.
+
+![flag5](img/flag5.png)
 
 ## Task 6: Break into the restricted database share
 
