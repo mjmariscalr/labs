@@ -117,5 +117,6 @@ Al acceder al recurso público obtenemos la flag y las credenciales necesarias p
 
 > The internal server keeps its database exports behind a credentialed share. The credentials for it are closer than you think - you passed them on the way in. Authenticate to the restricted share and recover the final token.
 
+Usamos el usuario obtenido en la flag anterior para obtener esta última.
 
 ![flag6](img/flag6.png)
