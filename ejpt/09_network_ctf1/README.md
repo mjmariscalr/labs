@@ -83,7 +83,7 @@ root@ine# smbclient //target1.ine.local/public -N
 
 > Not everything on the host is public. One share is reserved for a specific account. Between what the management layer told you and what the file services confirm, you know who that account is - now find a way to authenticate as them and read the restricted material. It also tells you where to go next.
 
-se encuentra el usuario con nmap --scirpt snmp-* -p 161 y con enum4linux. contraseña con hydra y valido para obtener el resto de flags en ssh
+
 
 ## Task 5: Reach the internal file server
 
