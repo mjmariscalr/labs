@@ -63,7 +63,21 @@ se recorre el árbol desde `iso`, permitiendo acceder también a ramas donde se 
 
 > The perimeter host shares files. Some of what it shares is available to anyone who asks, with no authentication at all. Enumerate the file services, identify which of them will talk to an unauthenticated client, and read what was left in the open.
 
-usuario anonimo habilitado
+La pista nos dice que podemos enumerar recursos compartidos sin necesidad de usar credenciales. Podemos confirmar que el acceso anónimo está permitido usando `enum4linux`, pero en este caso no es necesario y directamente enumeramos los recursos compartidos en el servidor con `smbclient`.
+
+```console
+root@ine# smbclient -L target1.ine.local -N
+```
+
+![smb](img/smb.png)
+
+Accedemos a `public` y encontramos un archivo que contiene la flag.
+
+```console
+root@ine# smbclient //target1.ine.local/public -N
+```
+
+![flag3](img/flag3.png)
 
 ## Task 4: Authenticate to the restricted share
 
