@@ -34,6 +34,10 @@ Si enumeramos los permisos que tiene nuestro usuario con el comando `getprivs` v
 
 ![getsystem](img/getsystem.png)
 
+Ahora que tememos acceso privilegiado, podemos enumerar el directorio de configuración de Windows y mostrar la flag.
+
+![flag2](img/flag2.png)
+
 ## Flag 3: The third flag is also hidden within the system directory. Find it to uncover a hint for accessing the final flag.
 
 
