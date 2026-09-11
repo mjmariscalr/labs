@@ -30,6 +30,10 @@ En esta segunda flag parece que no tenemos acceso al directorio `C:\Windows\Syst
 
 ![config](img/config.png)
 
+Si enumeramos los permisos que tiene nuestro usuario con el comando `getprivs` vemos que tiene `SeImpersonatePrivilege`, por lo que podemos elevar los privilegios del usuario con `getsysem`.
+
+![getsystem](img/getsystem.png)
+
 ## Flag 3: The third flag is also hidden within the system directory. Find it to uncover a hint for accessing the final flag.
 
 
