@@ -40,13 +40,12 @@ Ahora que tememos acceso privilegiado, podemos enumerar el directorio de configu
 
 ## Flag 3: The third flag is also hidden within the system directory. Find it to uncover a hint for accessing the final flag.
 
+Usando el comando `search` encontramos la flag. Como ya hemos elevado nuestros privilegios podemos acceder sin problema.
 
+![flag3](img/flag3.png)
 
 ## Flag 4: Investigate the Administrator directory to find the fourth flag.
 
+Con la búsqueda de la flag anterior también hemos encontrado la de esta tarea.
 
-
-
-
-
-
+![flag4](img/flag4.png)
