@@ -38,7 +38,41 @@ root@ine# rsync -av rsync://target1.ine.local/backupwscohen .
 
 ## Flag 3: Try exploiting the webapp to gain a shell using Metasploit on target2.ine.local.
 
+Al cambiar de objetivo es necesario volver a enumerar los puertos y servicios disponibles. En este caso nos encontramos un servidor Apache con los puertos 80 y 443 abiertos, además de la aplicación `Roxy-WI` funcionando en el servidor.
 
+```console
+root@ine# nmap -sS -p- -T4 -sC -sV target2.ine.local
+```
+
+![nmap2](img/nmap2.png)
+
+`Roxy-WI` es una herramienta web de administración para servidores de balanceo/proxy, principalmente HAProxy, pero también NGINX, Apache y Keepalived. Su objetivo es permitir gestionar estos servicios desde una interfaz web en lugar de hacerlo todo mediante terminal y editando archivos de configuración manualmente.
+
+Encontrar la versión exacta de la aplicación es poco intuitivo y es más rápido probar directamente el exploit ya que antes de explotar comprueba si el objetivo es vulnerable, pero puede encontrar siguiendo estos pasos:
+
+**1. Usamos el NSE http-enum** que nos muestra algunos direcnorios potencialmente interesantes.
+
+```console
+root@ine# nmap -p80,443 --script http-enum target2.ine.local
+```
+
+![http](img/http.png)
+
+**2. Después de navegar por los directorios,** encontramos una base de datos en `target2.ine.local/app`
+
+![db](img/db.png)
+
+**3. Una vez descargada,** hacemos click sobre ella para abrirla con el programa `DB Browser for SQLite`. Encontramos la versión siguiendo los pasos: *Browse data -> Table: version*
+
+![version](img/version.png)
+
+Si buscamos un exploit para `Roxy-WI` en metasploit, nos encontramos con `exploit/linux/http/roxy_wi_exec`, válido para versiones anteriores a la `6.1.1.0`.
+
+![roxy](img/roxy.png)
+
+Con este módulo obtenemos una sesión meterpreter y podemos buscar la flag.
+
+![meterpreter](img/meterpreter.png)
 
 ## Flag 4: Automated tasks can sometimes leave clues. Investigate scheduled jobs or running processes to uncover the hidden flag.
 
