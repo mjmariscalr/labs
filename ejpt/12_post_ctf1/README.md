@@ -50,4 +50,15 @@ Si buscamos archivos con permisos de escritura mal configurados, nos encontramos
 
 ![shadow](img/shadow.png)
 
+Generamos una nueva contraseña, en este caso he usado *pass*, y la añadimos a la segunda columna del usuario root.
 
+```console
+root@ine# openssl passwd -1 -salt texto pass
+```
+
+![pass](img/pass.png)
+![root](img/shadow.png)
+
+Por último, iniciamos sesion con root y buscamos la flag en su home.
+
+![flag5](img/flag5.png)
