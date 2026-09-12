@@ -46,4 +46,8 @@ Durante la fase de post-explotación encontramos unas credenciales en el directo
 
 ![creds](img/creds.png)
 
+Si buscamos archivos con permisos de escritura mal configurados, nos encontramos entre ellos `/etc/shadow`. Esto significa que podemos modificarlo y cambiar la contraseña de usuario root para elevar los privilegios.
+
+![shadow](img/shadow.png)
+
 
