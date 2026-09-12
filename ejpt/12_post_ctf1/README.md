@@ -20,7 +20,9 @@ Usamos la sesión creada para ver el contenido de `/etc/passwd` y encontrar la p
 
 ## Flag 2: User groups might reveal more than you expect.
 
+Para esta flag solo es necesario mostrar el contenido de `/etc/group`
 
+![flag2](img/flag2.png)
 
 ## Flag 3: Scheduled tasks often have telling names. Investigate the cron jobs to uncover the secret.
 
