@@ -46,3 +46,4 @@ Durante la fase de post-explotación encontramos unas credenciales en el directo
 
 ![creds](img/creds.png)
 
+
