@@ -80,4 +80,6 @@ Encontramos la tercera flag en el directorio raíz.
 
 ## Flag 4: Automated tasks can sometimes leave clues. Investigate scheduled jobs or running processes to uncover the hidden flag.
 
+En este último reto, al hablar de tareas automatizadas nos estamos refiriendo a cron. Puesto que con el comando `crontab -l` no obtenemos nada, pasamos a enumerar los directorios asociados a cron y nos encontramos un archivo asociado al usuario www-data, usuario con el que obtenemos acceso al sistema. Si mostramos su contenido vemos la última flag.
 
+![flag4](img/flag4.png)
