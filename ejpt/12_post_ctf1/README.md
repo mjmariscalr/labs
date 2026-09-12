@@ -26,7 +26,9 @@ Para esta flag solo es necesario mostrar el contenido de `/etc/group`
 
 ## Flag 3: Scheduled tasks often have telling names. Investigate the cron jobs to uncover the secret.
 
+Seguimos el mismo proceso que hasta ahora, pero con los distintos archivos y directorios asociados a cron.
 
+![flag3](img/flag3.png)
 
 ## Flag 4: DNS configurations might point you in the right direction. Also, explore the home directories for stored credentials.
 
