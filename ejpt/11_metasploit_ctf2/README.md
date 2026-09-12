@@ -74,6 +74,10 @@ Con este módulo obtenemos una sesión meterpreter y podemos buscar la flag.
 
 ![meterpreter](img/meterpreter.png)
 
+Encontramos la tercera flag en el directorio raíz.
+
+![flag3](img/flag3.png)
+
 ## Flag 4: Automated tasks can sometimes leave clues. Investigate scheduled jobs or running processes to uncover the hidden flag.
 
 
