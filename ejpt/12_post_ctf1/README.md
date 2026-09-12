@@ -32,6 +32,17 @@ Seguimos el mismo proceso que hasta ahora, pero con los distintos archivos y dir
 
 ## Flag 4: DNS configurations might point you in the right direction. Also, explore the home directories for stored credentials.
 
+Ahora es el turno de `/etc/hosts`
 
+![flag4](img/flag4.png)
 
 ## Flag 5: Use the discovered credentials to gain higher privileges and explore the root's home directory on target2.ine.local.
+
+Al cambiar de objetivo, volvemos a escanear los puertos y los servicios y encontramos ssh sobre el puerto 22.
+
+![nmap2](img/nmap2.png)
+
+Durante la fase de post-explotación encontramos unas credenciales en el directorio de uno de los usuarios del sistema anterior. si las usamos podemos acceder mediante ssh al segundo sistema.
+
+![creds](img/creds.png)
+
