@@ -16,7 +16,7 @@ Nos encontramos abierto el puerto 22 funcionando sobre `libssh 0.8.3`, que como 
 
 Usamos la sesión creada para ver el contenido de `/etc/passwd` y encontrar la primera flag.
 
-
+![flag1](img/flag1.png)
 
 ## Flag 2: User groups might reveal more than you expect.
 
