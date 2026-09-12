@@ -8,7 +8,15 @@ Para obtener esta flag, primero debemos conseguir acceso al objetivo. El primer 
 root@ine# nmap -sS -p- -T4 -sC -sV target.ine.local
 ```
 
-![nmap](img/nmap.png)
+![nmap1](img/nmap1.png)
+
+Nos encontramos abierto el puerto 22 funcionando sobre `libssh 0.8.3`, que como ya sabemos es vulnerable y podemos usar el módulo `auxiliary/scanner/ssh/libssh_auth_bypass` para explotarlo.
+
+![exploit](img/exploit.png)
+
+Usamos la sesión creada para ver el contenido de `/etc/passwd` y encontrar la primera flag.
+
+
 
 ## Flag 2: User groups might reveal more than you expect.
 
