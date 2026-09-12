@@ -20,7 +20,21 @@ root@ine# rsync rsync://target1.ine.local
 
 ## Flag 2: The files on the RSYNC server hold valuable information. Explore the contents to find the flag.
 
+Durante la enumeración anterior nos encontramos con el recurso `backupwscohen`, así que nos conectamos para seguir enumerando.
 
+```console
+root@ine# rsync rsync://target1.ine.local/backupwscohen
+```
+
+![rsync](img/rsync.png)
+
+Hacemos una copia de todo el contenido y comprobamos su contenido para encontrar la segunda flag.
+
+```console
+root@ine# rsync -av rsync://target1.ine.local/backupwscohen .
+```
+
+![flag2](img/flag2.png)
 
 ## Flag 3: Try exploiting the webapp to gain a shell using Metasploit on target2.ine.local.
 
