@@ -2,10 +2,10 @@
 
 ## Flag 1: Enumerate the open port using Metasploit, and inspect the RSYNC banner closely; it might reveal something interesting.
 
-Para obtener esta flag, primero debemos conseguir acceso al objetivo. El primer paso es enumerar los posibles vectores de ataque.
+Enumerando los servicios disponibles con nmap encontramos `rsync`. `rsync` es una herramienta para sincronizar y copiar archivos y directorios, normalmente entre dos máquinas o entre dos ubicaciones del mismo equipo. Cuando se habla de rsync como servicio, se refiere a ejecutar rsync en modo daemon, es decir, como un proceso que queda escuchando conexiones de otros equipos. Para copias entre servidores, rsync sobre SSH suele ser la opción más sencilla y segura.
 
 ```console
-root@ine# nmap -sS -p- -T4 -sC -sV target.ine.local
+root@ine# nmap -sS -p- -T4 -sC -sV target1.ine.local
 ```
 
 ![nmap](img/nmap.png)
