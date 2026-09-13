@@ -57,7 +57,7 @@ root@ine# openssl passwd -1 -salt texto pass
 ```
 
 ![pass](img/pass.png)
-![root](img/shadow.png)
+![root](img/root.png)
 
 Por último, iniciamos sesion con root y buscamos la flag en su home.
 
