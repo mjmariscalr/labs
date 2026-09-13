@@ -60,8 +60,15 @@ Si intentamos navegar al directorio que contiene la flag dentro del home del usu
 
 ```console
 C:> cd C:\Users\Administrator
-C:> icalcs flag
+C:> icacls flag
 ```
 
-![icalcs](img/icalcs.png)
+![icacls](img/icacls.png)
 
+Si eliminamos la restricción tendremos acceso al directorio y por tanto a la flag.
+
+```console
+C:> icacls flag /remove:d "NT AUTHORITY\SYSTEM"
+```
+
+![flag4](img/flag4.png)
