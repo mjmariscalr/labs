@@ -16,7 +16,9 @@ Conseguimos acceso al sistema Windows y conseguimos la primera flag en el home d
 
 ## Flag 2: Using the hashdump file discovered in the previous challenge, can you crack the hashes and compromise a user?
 
+Primero copiamos el archivo a la máquina kali.
 
+![hash](img/hash.png)
 
 ## Flag 3: Can you escalate privileges and read the flag in C://Windows//System32//config directory?
 
