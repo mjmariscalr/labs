@@ -42,6 +42,18 @@ Esto nos permite elevar los privilegios usando una sesión meterpreter. Para ell
 
 ![ssh_login](img/ssh_login.png)
 
+Este módulo crea una sesión shell igual que si usamos el comando ssh. Para tener una sesión meterpreter usamos `sessions -u 1`.
+
+![meterpreter](img/meterpreter.png)
+
+Ahora sí, podemos elevar los privilegios usando el comando `getsystem` desde la nueva sesión.
+
+![getsystem](img/getsystem.png)
+
+Si navegamos al directorio que nos indica la pista y encontraremos la flag.
+
+![flag3](img/flag3.png)
+
 ## Flag 4: Looks like the flag present in the Administrator's home denies direct access.
 
 
