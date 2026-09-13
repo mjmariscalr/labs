@@ -20,6 +20,14 @@ Primero copiamos el archivo a la máquina kali.
 
 ![hash](img/hash.png)
 
+Usamos `JohntheRipper` para romper el hash y así tratar de encontrar las nuevas credenciales.
+
+```console
+usr@hostname:~# john --format=NT hashdump.txt
+```
+
+![john](img/john.png)
+
 ## Flag 3: Can you escalate privileges and read the flag in C://Windows//System32//config directory?
 
 
