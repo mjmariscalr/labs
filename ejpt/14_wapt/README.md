@@ -9,9 +9,15 @@ La aplicación web dispone de un lector de archivos locales. Si seleccionamos un
 
 Cambiamos el nombre del archivo el la url por `/flag.txt` para mostrar el contenido de la primera.
 
+![flag1](img/flag1)
+
 ## Flag 2: Explore the structure of the server's directories. Enumeration might reveal hidden treasures.
 
+```console
+root@ine# dirb http://target.ine.local /usr/share/wordlists/dirb/common.txt
+```
 
+![dirb](img/dirb)
 
 ## Flag 3: The login form seems a bit weak. Trying out different combinations might just reveal the next flag.
 
