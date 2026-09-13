@@ -34,7 +34,13 @@ De la misma forma que antes, la flag se encuentra en el directorio home del usua
 
 ## Flag 3: Can you escalate privileges and read the flag in C://Windows//System32//config directory?
 
+Despues de enumerar información del systema con ambos usuarios, encontramos que `david` dispone del privilegio `SeImpersonatePrivilege`.
 
+![priv](img/priv.png)
+
+Esto nos permite elevar los privilegios usando una sesión meterpreter. Para ello usamos el módulo `ssh_login`.
+
+![ssh_login](img/ssh_login.png)
 
 ## Flag 4: Looks like the flag present in the Administrator's home denies direct access.
 
