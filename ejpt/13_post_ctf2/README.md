@@ -56,4 +56,12 @@ Si navegamos al directorio que nos indica la pista y encontraremos la flag.
 
 ## Flag 4: Looks like the flag present in the Administrator's home denies direct access.
 
+Si intentamos navegar al directorio que contiene la flag dentro del home del usuario administrador, se nos deniega el acceso. Además, al comprobar los permisos sobre este directorio vemos que se está bloqueando a `NT AUTHORITY\SYSTEM`.
+
+```console
+C:> cd C:\Users\Administrator
+C:> icalcs flag
+```
+
+![icalcs](img/icalcs.png)
 
