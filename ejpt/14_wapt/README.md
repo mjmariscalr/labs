@@ -47,4 +47,6 @@ Iniciamos sesión con el usuario guest y obtenemos la flag
 
 ## Flag 4: The login form behaves oddly with unexpected inputs. Think of injection techniques to access the 'admin'
 
+Esta flag se trata de una inyección de código sql en el formulario. Hay varios formatos que pueden funcionar, pero yo he usado `' OR '1'='1`
 
+![flag4](img/flag4)
