@@ -28,6 +28,10 @@ usr@hostname:~# john --format=NT hashdump.txt
 
 ![john](img/john.png)
 
+De la misma forma que antes, la flag se encuentra en el directorio home del usuario.
+
+![flag2](img/flag2.png)
+
 ## Flag 3: Can you escalate privileges and read the flag in C://Windows//System32//config directory?
 
 
