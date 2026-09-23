@@ -4,6 +4,11 @@ Esta máquina virtual tiene tres claves ocultas en diferentes ubicaciones. Tu ob
 
 La máquina virtual no es demasiado complicada. No hay ninguna explotación avanzada ni ingeniería inversa. El nivel se considera de principiante a intermedio.
 
+**Máquina:** Mr. Robot (VulnHub)
+**SO/Arquitectura:** Linux/x86
+**Dificultad:** Principiante
+**Técnicas:** Enumeración Web, Fuerza Bruta, Explotación SUID.
+
 Descarga [aquí](https://www.vulnhub.com/entry/mr-robot-1,151/)
 
 ## Resolución
