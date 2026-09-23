@@ -35,7 +35,7 @@ Vemos que el archivo `robots.txt` está disponible. Este documento incluye direc
 
 Para obtener acceso a la aplicación wordpress encontramos al menos dos formas. Aquí se explica la que tiene más relación con las técnicas necesarias para la certificación eJPT. Una de las técnicas más comunes en esta certificación es el uso de la fuerza bruta y en este caso podemos usar hydra para tratar de conseguir tanto el usuario como sus credenciales.
 
-El método `http-post-form` de hydra necesita al menos tres parámetros: usuario, contraseña y mensaje de error. Aún no disponemos de un usuario, por lo que probar todas las palabras del diccionario que hemos encontrado antes puede tardar demasiado. La solución a esto pasa por el tercer parámetro. Si hacemos un intento de iniciar sesión para que la aplicación muestre el mensaje de error nos encontramos con *"Invalid username"*. Esto nos ofrece mucha información y la posibilidad de enumerar usuarios.
+El método `http-post-form` de hydra necesita al menos tres parámetros: rura del formulario, datos post (usuario y contraseña) y mensaje de error. Aún no disponemos de un usuario, por lo que probar todas las palabras del diccionario que hemos encontrado antes puede tardar demasiado. La solución a esto pasa por el tercer parámetro. Si hacemos un intento de iniciar sesión para que la aplicación muestre el mensaje de error nos encontramos con *"Invalid username"*. Esto nos ofrece mucha información y la posibilidad de enumerar usuarios.
 
 ![login](img/login.png)
 
@@ -54,3 +54,9 @@ kali@kali$ hydra -L fsocity.dic -p test 192.168.1.142 http-post-form "/wp-login.
 Si ahora intentamos iniciar sesión con el usuario `Elliot`, vemos que el mensaje cambia.
 
 ![login2](img/login2.png)
+
+```console
+kali@kali$ hydra -l Elliot -p fsocity.dic 192.168.1.142 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:The password you entered for de username"
+```
+
+![hydra2](img/hydra2.png)
