@@ -8,7 +8,7 @@ Descarga [aquí](https://www.vulnhub.com/entry/mr-robot-1,151/)
 
 ## Resolución
 
-## Flag 1: enumeración
+### Flag 1: enumeración
 
 Como suele ser habitual, comenzamos con un escaneo de puertos para comprobar que servicios y versiones hay disponibles en esta máquina. En este caso nos encontramos con un servidor apache en el puerto 80 y 443. Si profundizamos un poco más 
 
@@ -31,7 +31,7 @@ Vemos que el archivo `robots.txt` está disponible. Este documento incluye direc
 
 ![flag1](img/flag1.png)
 
-## Flag 2: Explotación wordpress y obtención de usuarios locales
+### Flag 2: Explotación wordpress y obtención de usuarios locales
 
 Para obtener acceso a la aplicación wordpress encontramos al menos dos formas. Aquí se explica la que tiene más relación con las técnicas necesarias para la certificación eJPT. Una de las técnicas más comunes en esta certificación es el uso de la fuerza bruta y en este caso podemos usar hydra para tratar de conseguir tanto el usuario como sus credenciales.
 
@@ -69,7 +69,26 @@ Iniciamos un listener con `nc -nlvp 1234` y nos conectamos a cualquiera de las p
 
 ![shell](img/shell.png)
 
-Una vez dentro enumeramos los usuarios y sus directorios y encontramos la segunda flag, además de un archivo llamado password.md5-raw. El problema es que solo el usuario robot tiene acceso al archivo que contiene la flag.
+Una vez dentro enumeramos los usuarios y sus directorios y encontramos la segunda flag, además de un archivo llamado `password.raw-md5`. El problema es que solo el usuario robot tiene acceso al archivo que contiene la flag.
 
 ![daemon](img/daemon.png)
 
+Copiamos el contenido de este fichero a la máquina kali y usamos john para intentar obtenerla en texto plano. Antes de esto podemos usar la herramienta `hash-identifier` para asegurarnos de que realmente sea un hash md5 y ahorrarnos intentos fallidos.
+
+```console
+kali@kali$ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt pass.txt
+```
+
+![robot](img/robot.png)
+
+Iniciamos sesión con el usuario `robot` y podremos ver la flag. Para poder usar el comando `su` es necesario que tengamos una shell interactiva. En este caso la conseguimos mediante python.
+
+```console
+robot@linux$ python -c "import pty;pty.spawn('/bin/bash')"
+```
+
+![flag2](img/flag2.png)
+
+### Flag 3: Escalada de privilegios
+
+![suid](img/suid.png)
