@@ -91,4 +91,14 @@ robot@linux$ python -c "import pty;pty.spawn('/bin/bash')"
 
 ### Flag 3: Escalada de privilegios
 
+El siguiente paso es conseguir acceso privilegiado al sistema. Después de enumerar distintos métodos de escalada de privilegios nos encontramos con que `nmap` tiene los permisos **SUID** activos. Estos pueden permitir que, si el binario inicial (en este caso `nmap`) puede ejecutar otro binario o comando, el segundo herede los permisos root del primero. Si comprobamos la versión de `nmap` nos encontramos con la 3.81. `nmap` tenía un modo interactivo que permitía la ejecucion de comandos hasta su versión 5.21. 
+
 ![suid](img/suid.png)
+
+Entramos en el modo interativo de nmap y ejecutamos una shell que permita heredar los permisos, por ejemplo `!sh` o `!/bin/bash`.
+
+![root](img/root.png)
+
+Para terminar, accedemos al home de root y tendremos la última flag.
+
+![flag3](img/flag3.png)
