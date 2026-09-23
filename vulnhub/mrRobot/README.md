@@ -38,3 +38,19 @@ Para obtener acceso a la aplicación wordpress encontramos al menos dos formas. 
 El método `http-post-form` de hydra necesita al menos tres parámetros: usuario, contraseña y mensaje de error. Aún no disponemos de un usuario, por lo que probar todas las palabras del diccionario que hemos encontrado antes puede tardar demasiado. La solución a esto pasa por el tercer parámetro. Si hacemos un intento de iniciar sesión para que la aplicación muestre el mensaje de error nos encontramos con *"Invalid username"*. Esto nos ofrece mucha información y la posibilidad de enumerar usuarios.
 
 ![login](img/login.png)
+
+Para enumerar los usuarios necesitamos los valores de los campos del formulario. Usamos burpsuite y foxyproxy para interceptar un intento de inicio de sesión.
+
+![burp](img/burp.png)
+
+Una vez que conocemos estos parámetros, usamos hydra y la lista obtenida durante la fase de reconocimiento inicial.
+
+```console
+kali@kali$ hydra -L fsocity.dic -p test 192.168.1.142 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:Invalid username"
+```
+
+![hydra1](img/hydra1.png)
+
+Si ahora intentamos iniciar sesión con el usuario `Elliot`, vemos que el mensaje cambia.
+
+![login2](img/login2.png)
