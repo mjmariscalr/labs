@@ -64,3 +64,7 @@ kali@kali$ hydra -l Elliot -p fsocity.dic 192.168.1.142 http-post-form "/wp-logi
 Ahora que tenemos las credenciales y una vez dentro del panel de usuario de wordpress comprobamos que `Elliot` es un usuario administrador y tiene acceso al panel de edición de los temas de apariencia. Esto nos permite modificar el código con la intención de añadir un payload que ejecute una reverse shell. Yo he usado el código de Pentestmonkey disponible [aquí](https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php) o en `/usr/share/webshells/php/php-reverse-shell.php` dentro de kali. Una vez copiado, modificamos la IP y el puerto de escucha para que se conecte a nuestra máquina kali.
 
 ![reverse](img/reverse.png)
+
+Iniciamos un listener con `nc -nlvp 1234` y nos conectamos a cualquiera de las páginas que cargue el tema para ejecutar la shell, por ejemplo: `http://192.168.1.142/0/`
+
+![shell](img/shell.png)
