@@ -68,3 +68,8 @@ Ahora que tenemos las credenciales y una vez dentro del panel de usuario de word
 Iniciamos un listener con `nc -nlvp 1234` y nos conectamos a cualquiera de las páginas que cargue el tema para ejecutar la shell, por ejemplo: `http://192.168.1.142/0/`
 
 ![shell](img/shell.png)
+
+Una vez dentro enumeramos los usuarios y sus directorios y encontramos la segunda flag, además de un archivo llamado password.md5-raw. El problema es que solo el usuario robot tiene acceso al archivo que contiene la flag.
+
+![daemon](img/daemon.png)
+
