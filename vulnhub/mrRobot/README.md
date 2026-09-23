@@ -107,3 +107,14 @@ Entramos en el modo interativo de nmap y ejecutamos una shell que permita hereda
 Para terminar, accedemos al home de root y tendremos la última flag.
 
 ![flag3](img/flag3.png)
+
+## Mitigación
+
+- Para WordPress: 
+	- Instalar plugins como Fail2Ban o Wordfence para bloquear ataques de fuerza bruta
+	- Cambiar las configuraciones para que los mensajes de error de inicio de sesión sean genéricos, evitando la enumeración de usuarios.
+	- Deshabilitar el editor de archivos en el panel de administración (wp-config.php -> define('DISALLOW_FILE_EDIT', true);) para evitar la inyección de la reverse shell si el admin es comprometido.
+- Para el Sistema Operativo:
+	- Eliminar el permiso SUID de binarios que no lo necesiten.
+	- En caso de requerir escaneos privilegiados, utilizar Capabilities de Linux en lugar de SUID.
+	- Acualizar la versión de Nmap a una posterior a la 5.21 donde se eliminó el modo interactivo de forma nativa.
